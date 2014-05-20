@@ -30,3 +30,6 @@ alias serve='python -m SimpleHTTPServer 8000'
 
 # local / temporary overrides that don't need to go into this repository
 [ -f ~/.localrc ] && source ~/.localrc
+
+bindkey '^R' history-incremental-pattern-search-backward
+
