@@ -23,7 +23,9 @@ export LC_ALL=
 export PATH=/usr/local/bin:$PATH
 
 alias activate="source venv/bin/activate"
+alias serve='python -m SimpleHTTPServer 8000'
 
+# Source boxen
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 # local / temporary overrides that don't need to go into this repository
