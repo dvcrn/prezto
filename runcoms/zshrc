@@ -32,4 +32,5 @@ alias serve='python -m SimpleHTTPServer 8000'
 [ -f ~/.localrc ] && source ~/.localrc
 
 bindkey '^R' history-incremental-pattern-search-backward
-
+bindkey '^[f' forward-word
+bindkey '^[b' backward-word
