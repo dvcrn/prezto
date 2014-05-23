@@ -24,6 +24,7 @@ export PATH=/usr/local/bin:$PATH
 
 alias activate="source venv/bin/activate"
 alias serve='python -m SimpleHTTPServer 8000'
+alias act="activate"
 
 # Source boxen
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
