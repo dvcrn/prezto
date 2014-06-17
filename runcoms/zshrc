@@ -26,6 +26,8 @@ alias activate="source venv/bin/activate"
 alias serve='python -m SimpleHTTPServer 8000'
 alias act='activate'
 
+ggc () { git branch --remote | grep $1 | sed 's/origin\///g' | xargs git checkout  }
+
 # Source boxen
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
