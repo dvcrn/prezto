@@ -21,12 +21,25 @@ export LC_TIME="en_US.UTF-8"
 export LC_ALL=
 
 export PATH=/usr/local/bin:$PATH
+export PATH="/opt/boxen/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+export PYTHONPATH="/opt/boxen/homebrew/opt/coreutils/libexec/gnubin:$PYTHONPATH"
+export DEVELOPER_DIR="/Applications/Xcode6-Beta.app/Contents/Developer/"
 
 alias activate="source venv/bin/activate"
 alias serve='python -m SimpleHTTPServer 8000'
 alias act='activate'
 
 ggc () { git branch --remote | grep $1 | sed 's/origin\///g' | xargs git checkout  }
+dep () {
+	if [ $# -ne 0 ] 
+	then
+		hostname=staging:$1
+	else
+		hostname=staging
+	fi
+
+	fab $hostname force update && fab $hostname migrate && fab $hostname cutover 
+}
 
 # Source boxen
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
