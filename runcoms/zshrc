@@ -31,15 +31,21 @@ alias act='activate'
 
 ggc () { git branch --remote | grep $1 | sed 's/origin\///g' | xargs git checkout  }
 dep () {
-	if [ $# -ne 0 ] 
-	then
-		hostname=staging:$1
-	else
-		hostname=staging
-	fi
+  if [ $# -ne 0 ]
+  then
+    hostname=staging:$1
+  else
+    hostname=staging
+  fi
 
-	fab $hostname force update && fab $hostname migrate && fab $hostname cutover 
+  if [ $# -eq 2 ]
+  then
+    fab $hostname force update && fab $hostname migrate && fab $hostname cutover
+  else
+    fab $hostname force update && fab $hostname cutover
+  fi
 }
+
 
 # Source boxen
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
