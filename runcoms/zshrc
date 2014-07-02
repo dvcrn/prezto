@@ -55,7 +55,6 @@ dep () {
     fab $hostname force update && fab $hostname cutover
   fi
 
-  deactivate
   cd $executionpath
 }
 
