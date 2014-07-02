@@ -35,6 +35,12 @@ ggc () {
 
 # Deploy stuff
 dep () {
+  executionpath=$(pwd)
+  [ -d venv ] && source venv/bin/activate
+  [ -d ../venv ] && source ../venv/bin/activate
+  fabfiledir=$(find . -name 'fabfile.py' | sed s/fabfile.py//g | sed s,\\./,,g)
+  cd $fabfiledir
+
   if [ $# -ne 0 ]
   then
     hostname=staging:$1
@@ -48,6 +54,9 @@ dep () {
   else
     fab $hostname force update && fab $hostname cutover
   fi
+
+  deactivate
+  cd $executionpath
 }
 
 # SSH shortcuts. Every keystroke matters!
