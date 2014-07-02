@@ -29,7 +29,11 @@ alias activate="source venv/bin/activate"
 alias serve='python -m SimpleHTTPServer 8000'
 alias act='activate'
 
-ggc () { git branch --remote | grep $1 | sed 's/origin\///g' | xargs git checkout  }
+ggc () {
+  git branch --remote | grep $1 | sed 's/origin\///g' | xargs git checkout
+}
+
+# Deploy stuff
 dep () {
   if [ $# -ne 0 ]
   then
@@ -46,6 +50,9 @@ dep () {
   fi
 }
 
+# SSH shortcuts. Every keystroke matters!
+alias 'ystg'="ssh ystg"
+alias 'stg'="ssh stg"
 
 # Source boxen
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
