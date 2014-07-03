@@ -10,6 +10,7 @@
 
 # Return if requirements are not found.
 if (( ! $+commands[tmux] )); then
+  which tmux
   return 1
 fi
 
