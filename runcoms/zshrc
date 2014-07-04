@@ -24,14 +24,19 @@ export DEVELOPER_DIR="/Applications/Xcode6-Beta.app/Contents/Developer/"
 export VISUAL=vim
 export EDITOR=vim
 
-alias activate="source venv/bin/activate"
 alias serve='python -m SimpleHTTPServer 8000'
-alias act='activate'
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+activate() {
+  [ -d venv ] && source venv/bin/activate
+  [ -d ../venv ] && source ../venv/bin/activate
+}
+
+alias act='activate'
 
 ggc () {
   git branch --remote | grep $1 | sed 's/origin\///g' | xargs git checkout
