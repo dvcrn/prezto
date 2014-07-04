@@ -38,7 +38,7 @@ ggc () {
 }
 
 gsb () {
-  git branch --all | grep $1 
+  git branch --all | grep $1 | sed 's/remotes\/origin\///g' | sed 's/\*/ /g'  | sort -u | uniq
 }
 
 # Deploy stuff
