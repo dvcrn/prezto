@@ -37,6 +37,10 @@ ggc () {
   git branch --remote | grep $1 | sed 's/origin\///g' | xargs git checkout
 }
 
+gsb () {
+  git branch --all | grep $1 
+}
+
 # Deploy stuff
 dep () {
   executionpath=$(pwd)
