@@ -81,6 +81,8 @@ alias 'stg'="ssh stg"
 # local / temporary overrides that don't need to go into this repository
 [ -f ~/.localrc ] && source ~/.localrc
 
+bindkey '^E' end-of-line
+bindkey '^A' beginning-of-line
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^[[A' history-substring-search-down
 bindkey '^[[B' history-substring-search-up
