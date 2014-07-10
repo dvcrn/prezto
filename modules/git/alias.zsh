@@ -90,6 +90,7 @@ alias ggw='git grep --word-regexp'
 
 # Index (i)
 alias gia='git add'
+alias gii='git add --interactive'
 alias giA='git add --patch'
 alias giu='git add --update'
 alias gid='git diff --no-ext-diff --cached'
