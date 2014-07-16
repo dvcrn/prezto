@@ -89,3 +89,6 @@ bindkey '^[[B' history-substring-search-up
 
 bindkey '^[f' forward-word
 bindkey '^[b' backward-word
+
+alias vim="reattach-to-user-namespace vim"
+alias vi="vim"
