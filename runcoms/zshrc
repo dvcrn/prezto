@@ -30,6 +30,7 @@ alias serve='python -m SimpleHTTPServer 8000'
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+source $(brew --prefix)/etc/profile.d/z.sh
 
 activate() {
   [ -d venv ] && source venv/bin/activate
@@ -37,6 +38,10 @@ activate() {
 }
 
 alias act='activate'
+
+s () {
+  grep "$1" . -r
+}
 
 ggc () {
   git branch --remote | grep $1 | sed 's/origin\///g' | xargs git checkout
