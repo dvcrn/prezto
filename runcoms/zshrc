@@ -15,11 +15,9 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export LC_ALL=
 
-export PATH=/usr/local/bin:$PATH
-export PATH=/opt/boxen/homebrew/bin/:$PATH
-export PATH="/opt/boxen/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-export PYTHONPATH="/opt/boxen/homebrew/opt/coreutils/libexec/gnubin:$PYTHONPATH"
-export DEVELOPER_DIR="/Applications/Xcode6-Beta.app/Contents/Developer/"
+export PATH="$(brew --prefix)/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer/"
 
 export VISUAL=vim
 export EDITOR=vim
@@ -80,9 +78,6 @@ dep () {
 alias 'ystg'="ssh ystg"
 alias 'stg'="ssh stg"
 
-# Source boxen
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-
 # local / temporary overrides that don't need to go into this repository
 [ -f ~/.localrc ] && source ~/.localrc
 
@@ -94,6 +89,9 @@ bindkey '^[[B' history-substring-search-up
 
 bindkey '^[f' forward-word
 bindkey '^[b' backward-word
+
+bindkey '^[^[[C' forward-word
+bindkey '^[^[[D' backward-word
 
 alias vim="reattach-to-user-namespace vim"
 alias vi="vim"
