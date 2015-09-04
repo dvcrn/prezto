@@ -47,6 +47,9 @@ zstyle ':prezto:load' pmodule \
 zstyle ':prezto:module:editor' key-bindings 'vi'
 export KEYTIMEOUT=1
 
+# If you prefer to have a different Escape key in 'vi' mode
+# zstyle ':prezto:module:editor' escape-remap 'jk'
+
 # Auto convert .... to ../..
 # zstyle ':prezto:module:editor' dot-expansion 'yes'
 
