@@ -62,6 +62,7 @@ gff() {
 }
 
 alias workon=ggc
+alias subl='reattach-to-user-namespace subl'
 
 # Deploy stuff
 dep () {
@@ -102,6 +103,8 @@ emacs () {
 
 }
 
+alias "cemacs"="/usr/local/bin/emacs"
+
 # local / temporary overrides that don't need to go into this repository
 [ -f ~/.localrc ] && source ~/.localrc
 
@@ -118,3 +121,8 @@ alias vim="reattach-to-user-namespace vim"
 alias vi="vim"
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+
+
+. /Users/david.mohl/src/torch/install/bin/torch-activate
+
+export LINTER=eslint
