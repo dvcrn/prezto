@@ -96,11 +96,10 @@ emacs () {
   if [ $number -gt 1  ]
   then
     # emacsclient -c -n $1
-    emacsclient -n $1
+    reattach-to-user-namespace emacsclient -n $1
   else
-    open -a /usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.10/Emacs.app $1
+    reattach-to-user-namespace open -a /usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.10/Emacs.app $1
   fi
-
 }
 
 alias "cemacs"="/usr/local/bin/emacs"
