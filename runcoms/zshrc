@@ -64,31 +64,6 @@ gff() {
 alias workon=ggc
 alias subl='reattach-to-user-namespace subl'
 
-# Deploy stuff
-dep () {
-  executionpath=$(pwd)
-  [ -d venv ] && source venv/bin/activate
-  [ -d ../venv ] && source ../venv/bin/activate
-  fabfiledir=$(find . -name 'fabfile.py' | sed s/fabfile.py//g | sed s,\\./,,g)
-  cd $fabfiledir
-
-  if [ $# -ne 0 ]
-  then
-    hostname=staging:$1
-  else
-    hostname=staging
-  fi
-
-  if [ $# -eq 2 ]
-  then
-    fab $hostname force update && fab $hostname migrate && fab $hostname cutover
-  else
-    fab $hostname force update && fab $hostname cutover
-  fi
-
-  cd $executionpath
-}
-
 emacs () {
   PROCESS=Emacs
   number=$(ps aux | grep $PROCESS | wc -l)
@@ -98,14 +73,11 @@ emacs () {
     # emacsclient -c -n $1
     reattach-to-user-namespace emacsclient -n $1
   else
-    reattach-to-user-namespace open -a /usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.10/Emacs.app $1
+    reattach-to-user-namespace open -a /usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.15/Emacs.app $1
   fi
 }
 
 alias "cemacs"="/usr/local/bin/emacs"
-
-# local / temporary overrides that don't need to go into this repository
-[ -f ~/.localrc ] && source ~/.localrc
 
 bindkey '^E' end-of-line
 bindkey '^A' beginning-of-line
@@ -121,7 +93,5 @@ alias vi="vim"
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
-
-. /Users/david.mohl/src/torch/install/bin/torch-activate
-
-export LINTER=eslint
+# local / temporary overrides that don't need to go into this repository
+[ -f ~/.localrc ] && source ~/.localrc
