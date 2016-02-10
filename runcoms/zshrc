@@ -21,6 +21,7 @@ export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer/"
 export VISUAL=vim
 export EDITOR=vim
 export PURE_PROMPT_SYMBOL="λ"
+export TERM="xterm-256color"
 
 alias serve='python -m SimpleHTTPServer 8000'
 
@@ -95,3 +96,5 @@ test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_in
 
 # local / temporary overrides that don't need to go into this repository
 [ -f ~/.localrc ] && source ~/.localrc
+
+eval "$(rbenv init -)"
