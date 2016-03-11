@@ -93,7 +93,7 @@ alias vim=nvim
 alias vi=nvim
 
 gnvim() {
-  open -a Neovim ${1:+"$@"}
+  open -a ~/src/neovim-qt/build/bin/nvim-qt --args ${1:+"$@"}
 }
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
