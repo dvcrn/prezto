@@ -28,6 +28,13 @@ alias serve='python -m SimpleHTTPServer 8000'
 export FZF_DEFAULT_COMMAND='ag -g "" --hidden --ignore-dir=".git"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+
+if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
+  alias h='nvr -o'
+  alias v='nvr -O'
+  alias t='nvr --remote-tab'
+fi
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
