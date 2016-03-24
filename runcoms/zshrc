@@ -16,6 +16,7 @@ export LC_TIME="en_US.UTF-8"
 export LC_ALL=
 
 export PATH="$(brew --prefix)/bin:$PATH"
+export PATH="/Users/david/bin:$PATH"
 export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer/"
 
 export VISUAL=vim
